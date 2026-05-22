@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>GrowthOS AI — One Pager</title>
+<style>
+  @page { size: letter; margin: 0; }
+  :root {
+    --navy: #0a1a36;
+    --navy-2: #11254d;
+    --gold: #c79a36;
+    --gold-2: #b8860b;
+    --cream: #faf7f0;
+    --cream-2: #efe9da;
+    --ink: #15233d;
+    --muted: #4a5970;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    width: 8.5in;
+    height: 11in;
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+    padding: 0.55in 0.7in;
+    position: relative;
+    overflow: hidden;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(10,26,54,0.12);
+    margin-bottom: 18px;
+  }
+  .logo { height: 64px; }
+  .header-right { text-align: right; }
+  .brand-name { font-size: 26px; font-weight: 800; color: var(--navy); letter-spacing: -1px; line-height: 1; }
+  .brand-name .ai { color: var(--gold-2); }
+  .tagline { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; margin-top: 4px; }
+
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: var(--cream);
+    padding: 22px 26px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero h1 {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+  .hero h1 .gold { color: var(--gold); }
+  .hero p { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.85); max-width: 6.2in; }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .stat {
+    background: white;
+    border: 1px solid rgba(10,26,54,0.08);
+    border-radius: 10px;
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .stat-num { font-size: 22px; font-weight: 800; color: var(--navy); letter-spacing: -0.5px; }
+  .stat-num .gold { color: var(--gold-2); }
+  .stat-label { font-size: 9.5px; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  .section-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 16px;
+    background: var(--gold-2);
+    border-radius: 2px;
+  }
+
+  .services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .service {
+    background: white;
+    border: 1px solid rgba(10,26,54,0.08);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .svc-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .svc-icon {
+    width: 26px; height: 26px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .svc-title { font-size: 12.5px; font-weight: 700; color: var(--navy); letter-spacing: -0.3px; }
+  .svc-body { font-size: 10.5px; line-height: 1.45; color: var(--muted); }
+  .svc-body b { color: var(--ink); }
+
+  .receipts {
+    background: white;
+    border: 1px solid rgba(10,26,54,0.08);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+  }
+  .receipts-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    text-align: center;
+  }
+  .receipt-num { font-size: 18px; font-weight: 800; color: var(--gold-2); letter-spacing: -0.5px; }
+  .receipt-label { font-size: 9.5px; color: var(--muted); margin-top: 2px; }
+
+  .pricing {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .price-box {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: var(--cream);
+    padding: 14px 18px;
+    border-radius: 10px;
+  }
+  .price-row { display: flex; align-items: baseline; justify-content: space-between; padding: 4px 0; }
+  .price-row + .price-row { border-top: 1px dashed rgba(255,255,255,0.18); }
+  .price-label { font-size: 11px; color: rgba(255,255,255,0.85); }
+  .price-val { font-size: 18px; font-weight: 800; color: var(--gold); letter-spacing: -0.5px; }
+  .price-note { font-size: 9.5px; color: rgba(255,255,255,0.6); margin-top: 8px; }
+
+  .enterprise {
+    background: linear-gradient(135deg, var(--gold-2) 0%, #8e6909 100%);
+    color: white;
+    padding: 14px 18px;
+    border-radius: 10px;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .enterprise-title { font-size: 13px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 4px; }
+  .enterprise-body { font-size: 10.5px; line-height: 1.45; opacity: 0.95; }
+
+  .footer {
+    position: absolute;
+    bottom: 0.4in;
+    left: 0.7in;
+    right: 0.7in;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 12px;
+    border-top: 1px solid rgba(10,26,54,0.12);
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .footer .founders { font-weight: 700; color: var(--navy); }
+  .footer .cta { color: var(--gold-2); font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <img class="logo" src="assets/growthos-ai-logo.png" alt="GrowthOS AI" />
+    <div class="header-right">
+      <div class="brand-name">GrowthOS<span class="ai"> AI</span></div>
+      <div class="tagline">AI Growth Infrastructure for Service Businesses</div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <h1>The first $1M+ comes from <span class="gold">speed</span>.<br/>We give your business AI that never sleeps.</h1>
+    <p>We build AI-powered lead generation, voice agents, and CRM systems that turn slow, leaky sales operations into 24/7 revenue machines. The same stack we use to run our own companies — deployed inside yours.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num"><span class="gold">$450M+</span></div><div class="stat-label">Client Sales Volume</div></div>
+    <div class="stat"><div class="stat-num"><span class="gold">$12M+</span></div><div class="stat-label">Ad Spend Managed</div></div>
+    <div class="stat"><div class="stat-num"><span class="gold">50+</span></div><div class="stat-label">Industries Served</div></div>
+    <div class="stat"><div class="stat-num"><span class="gold">40+</span></div><div class="stat-label">Combined Years</div></div>
+  </div>
+
+  <div class="section-title">Services</div>
+  <div class="services">
+    <div class="service">
+      <div class="svc-head"><div class="svc-icon">🎯</div><div class="svc-title">AI Lead Generation + Ads</div></div>
+      <div class="svc-body">Meta · Google · TikTok campaigns run by operators who've placed <b>$12M+</b> in spend. UGC creative production included.</div>
+    </div>
+    <div class="service">
+      <div class="svc-head"><div class="svc-icon">📞</div><div class="svc-title">AI Voice Caller (24/7)</div></div>
+      <div class="svc-body">Sub-60-second speed-to-lead. ElevenLabs voice. <b>Books, qualifies, transfers</b> hot leads to your team. Never sleeps.</div>
+    </div>
+    <div class="service">
+      <div class="svc-head"><div class="svc-icon">💾</div><div class="svc-title">Database Reactivation</div></div>
+      <div class="svc-body">We resurrect your <b>dead leads</b> — old form fills, ghosted prospects, no-shows. Free revenue, week one.</div>
+    </div>
+    <div class="service">
+      <div class="svc-head"><div class="svc-icon">🛠️</div><div class="svc-title">CRM Build &amp; Integration</div></div>
+      <div class="svc-body">Full GoHighLevel deployment: pipelines, automations, conversion tracking, <b>TCPA/DNC compliance</b>, smart routing, KPI dashboards.</div>
+    </div>
+    <div class="service">
+      <div class="svc-head"><div class="svc-icon">🤖</div><div class="svc-title">Custom AI Agents (OpenClaw)</div></div>
+      <div class="svc-body">We program <b>autonomous AI bots</b> that run inside your business. Email, social, content, ops, support — the same tech we run ourselves.</div>
+    </div>
+    <div class="service">
+      <div class="svc-head"><div class="svc-icon">📊</div><div class="svc-title">Strategic Oversight</div></div>
+      <div class="svc-body">Weekly KPI reports. Monthly QBRs. <b>Real account owners</b> — not pods of juniors.</div>
+    </div>
+  </div>
+
+  <div class="section-title">Receipts</div>
+  <div class="receipts">
+    <div class="receipts-row">
+      <div><div class="receipt-num">$1.6M</div><div class="receipt-label">Pool Contractor · 84 Consults</div></div>
+      <div><div class="receipt-num">$1K</div><div class="receipt-label">PI Law · Cost-Per-Case</div></div>
+      <div><div class="receipt-num">77X</div><div class="receipt-label">Festival · Peak ROAS</div></div>
+      <div><div class="receipt-num">$5</div><div class="receipt-label">GLP-1 · Cost-Per-Lead</div></div>
+    </div>
+  </div>
+
+  <div class="section-title">Investment</div>
+  <div class="pricing">
+    <div class="price-box">
+      <div class="price-row"><div class="price-label">One-Time Setup</div><div class="price-val">$12,000</div></div>
+      <div class="price-row"><div class="price-label">Monthly Retainer</div><div class="price-val">$5,000<span style="font-size:11px; color:rgba(255,255,255,0.7); font-weight:500;">/mo</span></div></div>
+      <div class="price-note">Cancel anytime with 30 days notice. Setup includes CRM build, conversion tracking, voice agent training, onboarding &amp; pipeline mapping.</div>
+    </div>
+    <div class="enterprise">
+      <div class="enterprise-title">Enterprise</div>
+      <div class="enterprise-body">Custom-scoped engagements for <b>$1M+ operators</b> needing full-stack growth infrastructure. Quoted on call.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="founders">Co-Founders: Ardria "AJ" Jordan · Daniel Lee · Jeremy Garcia</div>
+    <div class="cta">📅 Book a 30-min intro → growthos.ai/call</div>
+  </div>
+
+</div>
+</body>
+</html>
