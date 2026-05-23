@@ -1,27 +1,27 @@
 /* =====================================================================
-   GrowthOS AI — Marketing Site v5
-   Editorial dark luxury: museum-black, cinematic photography,
-   massive serif typography, asymmetric layout. Tom Ford × Apple Vision.
+   GrowthOS AI — Marketing Site v6
+   Editorial white luxury: gallery-white, cinematic photography,
+   massive serif typography, asymmetric layout. Aesop × Apple × Bottega.
    ===================================================================== */
 
 :root {
-  --ink-0: #06070c;
-  --ink-1: #0a0c14;
-  --ink-2: #10131c;
-  --ink-3: #161a25;
-  --navy-1: #1a2240;
-  --navy-2: #243059;
-  --line: rgba(243, 238, 227, 0.08);
-  --line-strong: rgba(243, 238, 227, 0.18);
-  --gold-1: #d4a948;
-  --gold-2: #c79a36;
-  --gold-3: #a37c1f;
-  --champagne: #e8d4a0;
-  --gold-glow: rgba(212, 169, 72, 0.24);
-  --cream: #f3eee3;
-  --text: #f3eee3;
-  --text-dim: #b8b3a6;
-  --text-dimmer: #7a7669;
+  --ink-0: #ffffff;
+  --ink-1: #fafaf7;
+  --ink-2: #f3f1ea;
+  --ink-3: #ebe7dc;
+  --navy-1: #0a0d18;
+  --navy-2: #14182a;
+  --line: rgba(10, 13, 24, 0.10);
+  --line-strong: rgba(10, 13, 24, 0.22);
+  --gold-1: #b8860b;
+  --gold-2: #a37c1f;
+  --gold-3: #7d5f12;
+  --champagne: #c79a36;
+  --gold-glow: rgba(184, 134, 11, 0.18);
+  --cream: #faf7f0;
+  --text: #0a0d18;
+  --text-dim: #545968;
+  --text-dimmer: #8a8e9a;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
@@ -62,9 +62,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: radial-gradient(ellipse 90% 60% at 50% -10%, rgba(212, 169, 72, 0.08) 0%, transparent 60%),
-              radial-gradient(ellipse 60% 40% at 90% 30%, rgba(36, 48, 89, 0.20) 0%, transparent 55%),
-              radial-gradient(ellipse 70% 50% at 10% 70%, rgba(212, 169, 72, 0.04) 0%, transparent 60%),
+  background: radial-gradient(ellipse 90% 60% at 50% -10%, rgba(184, 134, 11, 0.06) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 40% at 90% 30%, rgba(10, 13, 24, 0.03) 0%, transparent 55%),
+              radial-gradient(ellipse 70% 50% at 10% 70%, rgba(184, 134, 11, 0.04) 0%, transparent 60%),
               var(--ink-0);
 }
 .bg-grain {
@@ -136,23 +136,23 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: linear-gradient(180deg, var(--gold-1) 0%, var(--gold-3) 100%);
   color: #fff;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset,
-              0 1px 0 rgba(243, 238, 227, 0.25) inset,
+              0 1px 0 rgba(10, 13, 24, 0.25) inset,
               0 8px 30px -8px var(--gold-glow);
 }
 .btn-primary:hover {
   transform: translateY(-1px);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2) inset,
-              0 1px 0 rgba(243, 238, 227, 0.35) inset,
+              0 1px 0 rgba(10, 13, 24, 0.35) inset,
               0 14px 40px -8px var(--gold-glow);
 }
 .btn-ghost {
-  background: rgba(243, 238, 227, 0.04);
+  background: rgba(10, 13, 24, 0.04);
   border: 1px solid var(--line);
   color: var(--text);
   padding: 14px 22px;
 }
 .btn-ghost:hover {
-  background: rgba(243, 238, 227, 0.07);
+  background: rgba(10, 13, 24, 0.07);
   border-color: var(--line-strong);
   transform: translateY(-1px);
 }
@@ -172,7 +172,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-bottom: 1px solid transparent;
 }
 .nav.scrolled {
-  background: rgba(6, 7, 12, 0.72);
+  background: rgba(255, 255, 255, 0.78);
   backdrop-filter: saturate(160%) blur(20px);
   -webkit-backdrop-filter: saturate(160%) blur(20px);
   border-bottom-color: var(--line);
@@ -221,8 +221,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(243, 238, 227, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(243, 238, 227, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(10, 13, 24, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 13, 24, 0.025) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 0%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 0%, transparent 75%);
@@ -296,7 +296,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .stats-bar {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(243, 238, 227, 0.012) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(10, 13, 24, 0.012) 0%, transparent 100%);
 }
 .stats-grid {
   display: grid;
@@ -367,12 +367,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 22px 26px;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: rgba(243, 238, 227, 0.018);
+  background: rgba(10, 13, 24, 0.018);
   transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
 }
 .problem-item:hover {
   border-color: var(--line-strong);
-  background: rgba(243, 238, 227, 0.03);
+  background: rgba(10, 13, 24, 0.03);
 }
 .problem-item .x {
   flex-shrink: 0;
@@ -389,7 +389,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (max-width: 880px) { .problem-grid { grid-template-columns: 1fr; gap: 40px; } }
 
 /* ---------- SERVICES ---------------------------------------------- */
-.services { background: linear-gradient(180deg, transparent, rgba(243,238,227,0.012) 50%, transparent); }
+.services { background: linear-gradient(180deg, transparent, rgba(10,13,24,0.012) 50%, transparent); }
 .service-feature {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
@@ -458,7 +458,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   gap: 14px;
   padding: 14px 18px;
   border-radius: 12px;
-  background: rgba(243, 238, 227, 0.04);
+  background: rgba(10, 13, 24, 0.04);
   border: 1px solid var(--line);
   margin-bottom: 12px;
   font-size: 13.5px;
@@ -476,7 +476,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   animation: pulse 1.6s ease-out infinite;
   flex-shrink: 0;
 }
-.voice-call-row .dotted { width: 9px; height: 9px; border-radius: 50%; background: rgba(243,238,227,0.18); flex-shrink: 0; }
+.voice-call-row .dotted { width: 9px; height: 9px; border-radius: 50%; background: rgba(10,13,24,0.18); flex-shrink: 0; }
 .voice-call-row .name { color: var(--text); font-weight: 500; }
 .voice-call-row .meta { color: var(--text-dimmer); margin-left: auto; font-variant-numeric: tabular-nums; }
 @keyframes pulse {
@@ -557,7 +557,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 36px;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, rgba(243, 238, 227, 0.018) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(10, 13, 24, 0.018) 0%, transparent 100%);
   transition: border-color 0.4s var(--ease), transform 0.4s var(--ease-out), background 0.4s var(--ease);
   position: relative;
   overflow: hidden;
@@ -565,7 +565,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .svc-card:hover {
   border-color: var(--line-strong);
   transform: translateY(-3px);
-  background: linear-gradient(180deg, rgba(243, 238, 227, 0.03) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(10, 13, 24, 0.03) 0%, transparent 100%);
 }
 .svc-card::after {
   content: '';
@@ -611,7 +611,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 32px 28px;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: rgba(243, 238, 227, 0.018);
+  background: rgba(10, 13, 24, 0.018);
   transition: border-color 0.4s var(--ease), background 0.4s var(--ease), transform 0.4s var(--ease-out);
   text-align: left;
 }
@@ -689,7 +689,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 40px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, rgba(243, 238, 227, 0.022) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(10, 13, 24, 0.022) 0%, transparent 100%);
   display: flex;
   gap: 28px;
   align-items: flex-start;
@@ -874,7 +874,7 @@ elevenlabs-convai {
   overflow: hidden;
   border: 1px solid var(--line);
   background: var(--ink-2);
-  box-shadow: 0 30px 80px -30px rgba(243, 238, 227, 0.18),
+  box-shadow: 0 30px 80px -30px rgba(10, 13, 24, 0.18),
               0 1px 0 rgba(255, 255, 255, 0.6) inset;
 }
 .showcase-frame img {
@@ -888,7 +888,7 @@ elevenlabs-convai {
   position: absolute;
   left: 0; right: 0; bottom: 0;
   padding: 28px 36px;
-  background: linear-gradient(0deg, rgba(243, 238, 227, 0.85) 0%, rgba(243, 238, 227, 0.55) 60%, transparent 100%);
+  background: linear-gradient(0deg, rgba(10, 13, 24, 0.85) 0%, rgba(10, 13, 24, 0.55) 60%, transparent 100%);
   color: #fff;
   font-size: 15px;
   letter-spacing: -0.01em;
@@ -913,7 +913,7 @@ elevenlabs-convai {
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1;
-  opacity: 0.55;
+  opacity: 0.32;
   filter: saturate(105%) contrast(105%);
 }
 .section-bg::after {
@@ -921,11 +921,11 @@ elevenlabs-convai {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(6, 7, 12, 0.94) 0%,
-    rgba(6, 7, 12, 0.58) 22%,
-    rgba(6, 7, 12, 0.48) 50%,
-    rgba(6, 7, 12, 0.70) 80%,
-    rgba(6, 7, 12, 0.94) 100%);
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(255, 255, 255, 0.74) 22%,
+    rgba(255, 255, 255, 0.66) 50%,
+    rgba(255, 255, 255, 0.80) 80%,
+    rgba(255, 255, 255, 0.96) 100%);
   z-index: -1;
   pointer-events: none;
 }
@@ -949,7 +949,7 @@ elevenlabs-convai {
   overflow: hidden;
   aspect-ratio: 4 / 3;
   border: 1px solid var(--line);
-  box-shadow: 0 30px 80px -30px rgba(243, 238, 227, 0.22);
+  box-shadow: 0 30px 80px -30px rgba(10, 13, 24, 0.22);
   isolation: isolate;
 }
 .case-card img {
@@ -1012,7 +1012,7 @@ elevenlabs-convai {
   padding: 70px 0 30px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(243, 238, 227, 0.02) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(10, 13, 24, 0.02) 0%, transparent 100%);
 }
 .stack-head {
   text-align: center;
@@ -1037,11 +1037,11 @@ elevenlabs-convai {
   font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.005em;
-  color: var(--cream);
-  opacity: 0.6;
+  color: var(--navy-1);
+  opacity: 0.55;
   transition: opacity 0.2s var(--ease);
 }
-.stack-row span:not(.dot):hover { opacity: 1; color: var(--champagne); }
+.stack-row span:not(.dot):hover { opacity: 1; color: var(--gold-3); }
 .stack-row .dot {
   width: 4px; height: 4px;
   border-radius: 50%;
