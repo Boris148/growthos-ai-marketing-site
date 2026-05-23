@@ -1,25 +1,25 @@
 /* =====================================================================
    GrowthOS AI — Marketing Site
-   Hand-crafted CSS. No framework. Premium dark-navy + gold aesthetic.
+   Hand-crafted CSS. No framework. Premium light-cream + gold aesthetic.
    ===================================================================== */
 
 :root {
-  --ink-0: #04060d;
-  --ink-1: #070b18;
-  --ink-2: #0a1024;
-  --ink-3: #0e1531;
+  --ink-0: #f8f3e4;
+  --ink-1: #f3ecd8;
+  --ink-2: #ffffff;
+  --ink-3: #ece4cc;
   --navy-1: #11254d;
   --navy-2: #1a3266;
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.14);
-  --gold-1: #d4a948;
-  --gold-2: #c79a36;
-  --gold-3: #a37c1f;
-  --gold-glow: rgba(212, 169, 72, 0.22);
-  --cream: #f4eedf;
-  --text: #ecedf2;
-  --text-dim: #a6adc1;
-  --text-dimmer: #6f778d;
+  --line: rgba(10, 26, 54, 0.10);
+  --line-strong: rgba(10, 26, 54, 0.20);
+  --gold-1: #c79a36;
+  --gold-2: #b8860b;
+  --gold-3: #8a6309;
+  --gold-glow: rgba(184, 134, 11, 0.22);
+  --cream: #faf7f0;
+  --text: #0a1a36;
+  --text-dim: #4a5970;
+  --text-dimmer: #8590a8;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
@@ -48,7 +48,7 @@ img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
 
-::selection { background: var(--gold-2); color: var(--ink-0); }
+::selection { background: var(--gold-2); color: #fff; }
 
 .container {
   max-width: var(--container);
@@ -61,9 +61,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: fixed;
   inset: 0;
   z-index: -2;
-  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(26, 50, 102, 0.4) 0%, transparent 60%),
-              radial-gradient(ellipse 60% 40% at 90% 30%, rgba(199, 154, 54, 0.06) 0%, transparent 50%),
-              radial-gradient(ellipse 70% 50% at 10% 60%, rgba(17, 37, 77, 0.4) 0%, transparent 60%),
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(199, 154, 54, 0.12) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 40% at 90% 30%, rgba(17, 37, 77, 0.05) 0%, transparent 50%),
+              radial-gradient(ellipse 70% 50% at 10% 60%, rgba(199, 154, 54, 0.08) 0%, transparent 60%),
               var(--ink-0);
 }
 .bg-grain {
@@ -133,25 +133,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .btn-primary {
   background: linear-gradient(180deg, var(--gold-1) 0%, var(--gold-3) 100%);
-  color: var(--ink-0);
+  color: #fff;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.18) inset,
-              0 1px 0 rgba(255, 255, 255, 0.25) inset,
+              0 1px 0 rgba(10, 26, 54, 0.25) inset,
               0 8px 30px -8px var(--gold-glow);
 }
 .btn-primary:hover {
   transform: translateY(-1px);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2) inset,
-              0 1px 0 rgba(255, 255, 255, 0.35) inset,
+              0 1px 0 rgba(10, 26, 54, 0.35) inset,
               0 14px 40px -8px var(--gold-glow);
 }
 .btn-ghost {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(10, 26, 54, 0.04);
   border: 1px solid var(--line);
   color: var(--text);
   padding: 14px 22px;
 }
 .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(10, 26, 54, 0.07);
   border-color: var(--line-strong);
   transform: translateY(-1px);
 }
@@ -171,7 +171,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border-bottom: 1px solid transparent;
 }
 .nav.scrolled {
-  background: rgba(4, 6, 13, 0.7);
+  background: rgba(248, 243, 228, 0.82);
   backdrop-filter: saturate(160%) blur(18px);
   -webkit-backdrop-filter: saturate(160%) blur(18px);
   border-bottom-color: var(--line);
@@ -192,6 +192,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .brand img { width: 32px; height: 32px; }
 .brand .ai { color: var(--gold-1); }
+.brand-logo-only img { width: 44px; height: 44px; }
 .nav-links {
   display: flex;
   align-items: center;
@@ -216,8 +217,8 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(10, 26, 54, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10, 26, 54, 0.025) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 0%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 0%, transparent 75%);
@@ -291,7 +292,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .stats-bar {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.012) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(10, 26, 54, 0.012) 0%, transparent 100%);
 }
 .stats-grid {
   display: grid;
@@ -362,12 +363,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 22px 26px;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.018);
+  background: rgba(10, 26, 54, 0.018);
   transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
 }
 .problem-item:hover {
   border-color: var(--line-strong);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(10, 26, 54, 0.03);
 }
 .problem-item .x {
   flex-shrink: 0;
@@ -384,7 +385,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 @media (max-width: 880px) { .problem-grid { grid-template-columns: 1fr; gap: 40px; } }
 
 /* ---------- SERVICES ---------------------------------------------- */
-.services { background: linear-gradient(180deg, transparent, rgba(255,255,255,0.012) 50%, transparent); }
+.services { background: linear-gradient(180deg, transparent, rgba(10,26,54,0.012) 50%, transparent); }
 .service-feature {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
@@ -453,7 +454,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   gap: 14px;
   padding: 14px 18px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(10, 26, 54, 0.04);
   border: 1px solid var(--line);
   margin-bottom: 12px;
   font-size: 13.5px;
@@ -471,7 +472,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   animation: pulse 1.6s ease-out infinite;
   flex-shrink: 0;
 }
-.voice-call-row .dotted { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.18); flex-shrink: 0; }
+.voice-call-row .dotted { width: 9px; height: 9px; border-radius: 50%; background: rgba(10,26,54,0.18); flex-shrink: 0; }
 .voice-call-row .name { color: var(--text); font-weight: 500; }
 .voice-call-row .meta { color: var(--text-dimmer); margin-left: auto; font-variant-numeric: tabular-nums; }
 @keyframes pulse {
@@ -552,7 +553,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 36px;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.018) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(10, 26, 54, 0.018) 0%, transparent 100%);
   transition: border-color 0.4s var(--ease), transform 0.4s var(--ease-out), background 0.4s var(--ease);
   position: relative;
   overflow: hidden;
@@ -560,7 +561,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .svc-card:hover {
   border-color: var(--line-strong);
   transform: translateY(-3px);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(10, 26, 54, 0.03) 0%, transparent 100%);
 }
 .svc-card::after {
   content: '';
@@ -606,7 +607,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 32px 28px;
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.018);
+  background: rgba(10, 26, 54, 0.018);
   transition: border-color 0.4s var(--ease), background 0.4s var(--ease), transform 0.4s var(--ease-out);
   text-align: left;
 }
@@ -673,15 +674,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ---------- FOUNDERS ---------------------------------------------- */
 .founders-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   margin-top: 12px;
+}
+@media (max-width: 1100px) {
+  .founders-grid { grid-template-columns: 1fr 1fr; }
 }
 .founder-card {
   padding: 40px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.022) 0%, transparent 100%);
+  background: linear-gradient(180deg, rgba(10, 26, 54, 0.022) 0%, transparent 100%);
   display: flex;
   gap: 28px;
   align-items: flex-start;
@@ -843,4 +847,43 @@ elevenlabs-convai {
   bottom: 24px;
   right: 24px;
   z-index: 1000;
+}
+
+/* ---------- SHOWCASE BLOCKS ---------------------------------------- */
+.showcase {
+  padding: 40px 0 20px;
+}
+.showcase-wide {
+  padding: 80px 0 40px;
+}
+.showcase-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--ink-2);
+  box-shadow: 0 30px 80px -30px rgba(10, 26, 54, 0.18),
+              0 1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+.showcase-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 1.2s var(--ease-out);
+}
+.showcase-frame:hover img { transform: scale(1.02); }
+.showcase-frame figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 28px 36px;
+  background: linear-gradient(0deg, rgba(10, 26, 54, 0.85) 0%, rgba(10, 26, 54, 0.55) 60%, transparent 100%);
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.showcase-frame figcaption .gold { color: var(--gold-1); font-weight: 600; }
+@media (max-width: 700px) {
+  .showcase-frame figcaption { padding: 18px 20px; font-size: 13px; }
 }
