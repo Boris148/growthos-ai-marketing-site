@@ -433,19 +433,41 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: relative;
   border-radius: var(--radius-lg);
   padding: 36px;
-  background: linear-gradient(160deg, rgba(26, 50, 102, 0.4) 0%, rgba(10, 16, 36, 0.6) 100%);
-  border: 1px solid var(--line);
+  background: linear-gradient(160deg, #0e1226 0%, #050714 100%);
+  border: 1px solid rgba(212, 169, 72, 0.18);
   min-height: 360px;
   overflow: hidden;
+  box-shadow: 0 30px 80px -30px rgba(10, 13, 24, 0.22);
 }
 .svc-visual::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at top right, var(--gold-glow), transparent 60%);
-  opacity: 0.55;
+  background: radial-gradient(ellipse at top right, rgba(212, 169, 72, 0.18), transparent 60%);
+  opacity: 0.85;
   pointer-events: none;
 }
+/* Scoped text + child overrides so dark-island UI mocks always read on white page */
+.svc-visual,
+.svc-visual .voice-call-row .name,
+.svc-visual .pixel-card .nm { color: #f3eee3; }
+.svc-visual .voice-call-row {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.svc-visual .voice-call-row.active {
+  border-color: rgba(212, 169, 72, 0.55);
+  background: rgba(212, 169, 72, 0.12);
+}
+.svc-visual .voice-call-row .dotted { background: rgba(255, 255, 255, 0.22); }
+.svc-visual .voice-call-row .meta { color: rgba(243, 238, 227, 0.55); }
+.svc-visual .voice-stat { border-top-color: rgba(255, 255, 255, 0.08); }
+.svc-visual .voice-stat-label { color: rgba(243, 238, 227, 0.55); }
+.svc-visual .pixel-card {
+  background: rgba(8, 12, 28, 0.92);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+.svc-visual .pixel-card .em { color: rgba(243, 238, 227, 0.62); }
 
 /* Voice Caller mockup */
 .voice-mock {
