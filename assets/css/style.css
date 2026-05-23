@@ -33,8 +33,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-  font-feature-settings: 'cv11', 'ss01', 'ss03';
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   font-optical-sizing: auto;
   background: var(--ink-0);
   color: var(--text);
@@ -190,9 +189,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   letter-spacing: -0.02em;
   font-size: 18px;
 }
-.brand img { width: 32px; height: 32px; }
+.brand img { width: 32px; height: 32px; object-fit: contain; }
 .brand .ai { color: var(--gold-1); }
-.brand-logo-only img { width: 44px; height: 44px; }
+.brand-logo-only img { width: auto; height: 38px; }
+@media (max-width: 700px) {
+  .brand-logo-only img { height: 32px; }
+}
 .nav-links {
   display: flex;
   align-items: center;
@@ -774,17 +776,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ---------- FINAL CTA --------------------------------------------- */
 .final-cta {
   position: relative;
-  padding: 140px 0;
+  padding: 160px 0;
   overflow: hidden;
   border-top: 1px solid var(--line);
+  color: #fff;
 }
 .final-cta-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(212, 169, 72, 0.14) 0%, transparent 60%),
-              radial-gradient(ellipse 80% 60% at 50% 100%, rgba(26, 50, 102, 0.5) 0%, transparent 60%);
+  background:
+    linear-gradient(180deg, rgba(4, 8, 20, 0.78) 0%, rgba(4, 8, 20, 0.62) 40%, rgba(4, 8, 20, 0.78) 100%),
+    url("../img/bg-cta.jpg") center/cover no-repeat;
   pointer-events: none;
 }
+.final-cta .eyebrow { color: var(--gold-1); }
+.final-cta h2 { color: #fff; }
+.final-cta .italic-serif.gold { color: var(--gold-1); }
+.final-cta .lead { color: rgba(255, 255, 255, 0.82); }
+.final-cta .micro { color: rgba(255, 255, 255, 0.55); }
+.final-cta .btn-ghost { color: #fff; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.18); }
 .final-cta-inner {
   position: relative;
   z-index: 1;
@@ -887,3 +897,35 @@ elevenlabs-convai {
 @media (max-width: 700px) {
   .showcase-frame figcaption { padding: 18px 20px; font-size: 13px; }
 }
+
+/* ---------- SECTION BACKGROUND IMAGES ------------------------------ */
+.section-bg {
+  position: relative;
+  isolation: isolate;
+}
+.section-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  opacity: 0.42;
+}
+.section-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(248, 243, 228, 0.96) 0%,
+    rgba(248, 243, 228, 0.70) 18%,
+    rgba(248, 243, 228, 0.62) 50%,
+    rgba(248, 243, 228, 0.78) 82%,
+    rgba(248, 243, 228, 0.96) 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+.section-bg-services::before { background-image: url("../img/bg-services.jpg"); }
+.section-bg-results::before { background-image: url("../img/bg-results.jpg"); }
+.section-bg > .container { position: relative; z-index: 1; }
