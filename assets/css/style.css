@@ -214,8 +214,27 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ---------- HERO --------------------------------------------------- */
 .hero {
   position: relative;
-  padding: 180px 0 110px;
+  padding: 200px 0 140px;
   overflow: hidden;
+  isolation: isolate;
+}
+.hero-image .hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background: url("../img/hero-accent.jpg") center 30% / cover no-repeat;
+  z-index: -2;
+  filter: saturate(108%) contrast(105%);
+}
+.hero-image .hero-bg-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.72) 30%,
+    rgba(255, 255, 255, 0.68) 60%,
+    rgba(255, 255, 255, 0.94) 100%);
+  z-index: -1;
+  pointer-events: none;
 }
 .hero-grid {
   position: absolute;
