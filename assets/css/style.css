@@ -211,22 +211,25 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 /* ---------- MOBILE MENU ------------------------------------------- */
 .nav-toggle {
   display: none;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   border-radius: 10px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.85);
   cursor: pointer;
   transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+  flex-shrink: 0;
 }
-.nav-toggle:hover { border-color: var(--line-strong); }
+.nav-toggle:hover { border-color: var(--gold-2); }
 .nav-toggle .bar {
   display: block;
-  width: 18px; height: 1.5px;
+  width: 20px; height: 2px;
   background: var(--text);
-  margin: 3.5px 0;
+  margin: 3px 0;
+  border-radius: 2px;
   transition: transform 0.3s var(--ease), opacity 0.2s var(--ease);
 }
 .nav-toggle[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(5px) rotate(45deg); }
