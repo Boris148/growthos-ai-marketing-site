@@ -989,6 +989,16 @@ elevenlabs-convai {
   right: 24px;
   z-index: 1000;
 }
+/* Hide ElevenLabs branding via ::part() — widget exposes named parts */
+elevenlabs-convai::part(powered-by),
+elevenlabs-convai::part(branding),
+elevenlabs-convai::part(banner),
+elevenlabs-convai::part(footer) {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  opacity: 0 !important;
+}
 
 /* ---------- SHOWCASE BLOCKS ---------------------------------------- */
 .showcase {

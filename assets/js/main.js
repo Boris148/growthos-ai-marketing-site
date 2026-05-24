@@ -117,4 +117,36 @@
       window.scrollTo({ top, behavior: 'smooth' });
     });
   });
+
+  /* ---------- ElevenLabs widget — strip "Powered by" branding ------- */
+  /* Growing Business tier doesn't support disable_banner server-side, so we
+     hide the brand mark from the widget's shadow DOM client-side. */
+  const stripElevenBranding = () => {
+    const host = document.querySelector('elevenlabs-convai');
+    if (!host || !host.shadowRoot) return false;
+    const matchers = [
+      /powered\s*by/i, /elevenlabs/i, /11labs/i
+    ];
+    const walk = (root) => {
+      const nodes = root.querySelectorAll('*');
+      for (const n of nodes) {
+        const txt = (n.textContent || '').trim();
+        if (txt && txt.length < 60 && matchers.some(rx => rx.test(txt))) {
+          // hide only leaf-ish elements (no children with substantive text)
+          const hasChildText = Array.from(n.children).some(c => (c.textContent || '').trim().length > 0);
+          if (!hasChildText || n.tagName === 'A') {
+            n.style.display = 'none';
+          }
+        }
+        if (n.shadowRoot) walk(n.shadowRoot);
+      }
+    };
+    walk(host.shadowRoot);
+    return true;
+  };
+  let stripTries = 0;
+  const stripTimer = setInterval(() => {
+    stripTries++;
+    if (stripElevenBranding() || stripTries > 30) clearInterval(stripTimer);
+  }, 1000);
 })();
