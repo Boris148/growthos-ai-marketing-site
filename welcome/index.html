@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Welcome to GrowthOS AI — Client Onboarding</title>
+  <meta name="description" content="Private client onboarding portal — GrowthOS AI." />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="canonical" href="https://growthos-ai.com/welcome/" />
+
+  <link rel="icon" type="image/png" href="../assets/img/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+
+  <style>
+    /* Onboarding-portal specific styles — layered on top of site CSS */
+    body.onboarding main { padding: 140px 0 100px; }
+
+    .onboarding .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--navy-1);
+      color: var(--cream);
+      padding: 10px 24px;
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      z-index: 200;
+    }
+    .onboarding .topbar .gold { color: var(--gold-1); }
+    .onboarding .nav { top: 36px; }
+
+    .onboarding .portal-head { margin-bottom: 56px; }
+    .onboarding .portal-head .eyebrow { color: var(--gold-2); }
+    .onboarding .portal-head h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.6rem, 5.4vw, 4.4rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin: 18px 0 14px;
+      color: var(--text);
+    }
+    .onboarding .portal-head h1 .italic-serif { color: var(--gold-2); }
+    .onboarding .portal-head .sub {
+      color: var(--text-dim);
+      font-size: 18px;
+      line-height: 1.5;
+      max-width: 640px;
+    }
+
+    .onboarding .steps { max-width: 880px; }
+
+    .onboarding .step {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 36px 38px;
+      margin-bottom: 22px;
+      box-shadow: 0 16px 50px -28px rgba(10, 13, 24, 0.10);
+      transition: border-color 0.2s var(--ease), box-shadow 0.3s var(--ease);
+    }
+    .onboarding .step:hover {
+      border-color: rgba(184, 134, 11, 0.35);
+      box-shadow: 0 24px 70px -24px rgba(10, 13, 24, 0.18);
+    }
+    .onboarding .step-head {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+    .onboarding .step-num {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: var(--navy-1);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+    .onboarding .step-title {
+      flex: 1;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.015em;
+    }
+    .onboarding .step-status {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-3);
+      background: rgba(184, 134, 11, 0.10);
+      border: 1px solid rgba(184, 134, 11, 0.28);
+      padding: 5px 11px;
+      border-radius: 999px;
+    }
+    .onboarding .step-status.done {
+      color: #1f7a4d;
+      background: rgba(31, 122, 77, 0.10);
+      border-color: rgba(31, 122, 77, 0.3);
+    }
+    .onboarding .step .desc {
+      color: var(--text-dim);
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .onboarding .step .desc strong { color: var(--text); }
+    .onboarding .details {
+      background: var(--ink-1);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-size: 13.5px;
+      color: var(--text-dim);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+    .onboarding .details strong { color: var(--text); }
+    .onboarding .details code {
+      background: #fff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+      font-size: 12.5px;
+      border: 1px solid var(--line);
+      color: var(--navy-1);
+    }
+    .onboarding .step-action {
+      display: inline-block;
+      padding: 13px 22px;
+      background: linear-gradient(180deg, var(--gold-1) 0%, var(--gold-3) 100%);
+      color: #fff !important;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: -0.005em;
+      border-radius: 999px;
+      margin-right: 10px;
+      margin-top: 4px;
+      transition: transform 0.2s var(--ease), box-shadow 0.3s var(--ease);
+      text-decoration: none;
+      box-shadow: 0 8px 24px -10px var(--gold-glow);
+    }
+    .onboarding .step-action:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 32px -10px var(--gold-glow);
+      text-decoration: none;
+    }
+    .onboarding .step-action.secondary {
+      background: transparent;
+      color: var(--navy-1) !important;
+      border: 1px solid var(--line-strong);
+      box-shadow: none;
+    }
+    .onboarding .step-action.secondary:hover {
+      background: var(--ink-1);
+      border-color: var(--gold-2);
+    }
+    .onboarding .intake-shell {
+      background: var(--ink-1);
+      padding: 14px 16px;
+      border-radius: 8px;
+      text-align: center;
+      color: var(--text-dimmer);
+      font-size: 13px;
+      margin-top: 14px;
+      border: 1px dashed var(--line);
+    }
+
+    .onboarding .portal-faq {
+      max-width: 880px;
+      margin-top: 80px;
+      padding-top: 60px;
+      border-top: 1px solid var(--line);
+    }
+    .onboarding .portal-faq h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .onboarding details.q {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: border-color 0.2s var(--ease);
+    }
+    .onboarding details.q[open] { border-color: rgba(184, 134, 11, 0.45); }
+    .onboarding details.q summary {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 16px;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: -0.01em;
+    }
+    .onboarding details.q summary::-webkit-details-marker { display: none; }
+    .onboarding details.q summary::after {
+      content: '+';
+      color: var(--gold-2);
+      font-size: 22px;
+      font-weight: 400;
+      transition: transform 0.2s var(--ease);
+    }
+    .onboarding details.q[open] summary::after { content: '−'; }
+    .onboarding details.q p {
+      margin-top: 14px;
+      color: var(--text-dim);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 700px) {
+      .onboarding .step { padding: 28px 22px; }
+      .onboarding .step-head { gap: 12px; }
+      .onboarding .step-title { font-size: 18px; }
+      .onboarding .step-action { display: block; margin-right: 0; margin-bottom: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body class="onboarding">
+
+  <div class="bg-ambient" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+
+  <div class="topbar">
+    Private Client Onboarding &middot; <span class="gold">Confidential</span>
+  </div>
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="../index.html" class="brand brand-logo-only" aria-label="GrowthOS AI home">
+        <img src="../assets/img/logo.png" alt="GrowthOS AI" />
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#founders">Founders</a>
+        <a href="mailto:hello@growthos-ai.com">Support</a>
+      </nav>
+      <a href="mailto:hello@growthos-ai.com" class="btn btn-primary">
+        Email Support <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <ul>
+        <li><a href="../index.html#services">Services <span class="arrow" aria-hidden="true">→</span></a></li>
+        <li><a href="../index.html#founders">Founders <span class="arrow" aria-hidden="true">→</span></a></li>
+        <li><a href="../privacy.html">Privacy <span class="arrow" aria-hidden="true">→</span></a></li>
+        <li><a href="../terms.html">Terms <span class="arrow" aria-hidden="true">→</span></a></li>
+        <li><a href="mailto:hello@growthos-ai.com">Support <span class="arrow" aria-hidden="true">→</span></a></li>
+      </ul>
+      <a href="mailto:hello@growthos-ai.com" class="menu-cta">Email Support</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <div class="portal-head">
+        <span class="eyebrow">Welcome to the team</span>
+        <h1>Welcome, <span class="italic-serif">[CLIENT NAME]</span>.</h1>
+        <p class="sub">You&rsquo;re 4 steps away from going live. Complete them in order &mdash; most clients are done inside 24 hours.</p>
+      </div>
+
+      <div class="steps">
+
+        <!-- STEP 1: CONTRACT -->
+        <article class="step">
+          <div class="step-head">
+            <div class="step-num">1</div>
+            <div class="step-title">Sign the Master Services Agreement</div>
+            <div class="step-status">Required</div>
+          </div>
+          <p class="desc">Standard MSA covering scope, deliverables, payment terms, IP ownership, and cancellation. Locked-in pricing, 30-day cancellation notice. Open in a new tab and sign electronically &mdash; takes about 3 minutes.</p>
+          <div class="details">
+            <strong>What you&rsquo;re signing:</strong> a 1-page summary plus a 4-page agreement. Includes deliverables, KPIs, and the 30-day cancellation clause. No surprises.
+          </div>
+          <a href="[CONTRACT_URL]" class="step-action" target="_blank" rel="noopener">Open MSA &amp; Sign <span aria-hidden="true">&rarr;</span></a>
+          <a href="[CONTRACT_DOWNLOAD_URL]" class="step-action secondary" target="_blank" rel="noopener">Download PDF</a>
+        </article>
+
+        <!-- STEP 2: PAYMENT -->
+        <article class="step">
+          <div class="step-head">
+            <div class="step-num">2</div>
+            <div class="step-title">Complete Initial Payment</div>
+            <div class="step-status">Required</div>
+          </div>
+          <p class="desc">Onboarding payment of <strong>$[AMOUNT]</strong>. Two ways to pay &mdash; wire is fastest and zero-fee for you.</p>
+          <div class="details">
+            <strong>Option A &mdash; Wire Transfer (recommended, same-day clearing):</strong><br/>
+            Bank: <code>JPMorgan Chase</code><br/>
+            Beneficiary: <code>Social Elite Marketing Group LLC</code><br/>
+            Routing (Wire): <code>[WIRE_ROUTING]</code><br/>
+            Account: <code>[ACCOUNT_NUMBER]</code><br/>
+            Reference: <code>GrowthOS AI Onboarding &mdash; [CLIENT_NAME]</code><br/>
+            <br/>
+            <strong>Option B &mdash; ACH via Stripe Invoice</strong> (3-5 day settlement, small processing fee).
+          </div>
+          <a href="[STRIPE_INVOICE_URL]" class="step-action" target="_blank" rel="noopener">Pay via Stripe (ACH) <span aria-hidden="true">&rarr;</span></a>
+          <a href="mailto:hello@growthos-ai.com?subject=Wire%20Confirmation%20-%20[CLIENT_NAME]" class="step-action secondary">Confirm wire sent</a>
+        </article>
+
+        <!-- STEP 3: INTAKE -->
+        <article class="step">
+          <div class="step-head">
+            <div class="step-num">3</div>
+            <div class="step-title">Complete the Intake Form</div>
+            <div class="step-status">Required</div>
+          </div>
+          <p class="desc">10-minute form that tells us everything we need: brand assets, access creds (ad accounts, CRM, domains), KPIs, ideal customer profile, current pain points, and your team. The faster you fill this out, the faster we build.</p>
+          <div class="details">
+            <strong>What we&rsquo;ll ask for:</strong> logo + brand colors &middot; Meta / Google ad account access &middot; CRM credentials &middot; top 3 KPIs &middot; ICP / target customer description &middot; decision-makers and their contact info &middot; 3 best clients (for case-study modeling).
+          </div>
+          <a href="[INTAKE_FORM_URL]" class="step-action" target="_blank" rel="noopener">Start Intake Form <span aria-hidden="true">&rarr;</span></a>
+          <div class="intake-shell">Or embed inline &mdash; drop in your GHL form iframe here.</div>
+        </article>
+
+        <!-- STEP 4: KICKOFF CALL -->
+        <article class="step">
+          <div class="step-head">
+            <div class="step-num">4</div>
+            <div class="step-title">Book Your Kickoff Call</div>
+            <div class="step-status">Required</div>
+          </div>
+          <p class="desc">60-minute kickoff with the GrowthOS AI delivery team. We walk you through what we&rsquo;re building in the first 30 days, confirm goals, and lock the launch timeline. Pick a slot in the next 5 business days.</p>
+          <div class="details">
+            <strong>Who joins:</strong> one of the GrowthOS AI co-founders + your project manager. The AI architect operates behind the scenes &mdash; you&rsquo;ll see their work, not their face.
+          </div>
+          <a href="[CALENDLY_URL]" class="step-action" target="_blank" rel="noopener">Book Kickoff Call <span aria-hidden="true">&rarr;</span></a>
+        </article>
+
+      </div>
+
+      <!-- FAQ -->
+      <div class="portal-faq">
+        <h2>Onboarding FAQ</h2>
+        <details class="q">
+          <summary>How fast do we go live?</summary>
+          <p>Most clients are live with AI Voice Caller and at least one ad campaign within 14 days of payment + intake completion. Full stack (lead gen + voice + database reactivation + CRM) typically by day 30.</p>
+        </details>
+        <details class="q">
+          <summary>What if I already have a CRM?</summary>
+          <p>We integrate with anything &mdash; HubSpot, Salesforce, Pipedrive, Zoho, custom. GoHighLevel is our default if you don&rsquo;t have one or want to switch &mdash; we eat the build cost in that case.</p>
+        </details>
+        <details class="q">
+          <summary>Why no credit card option for the setup fee?</summary>
+          <p>Card fees on this size payment would be over $1,000. We&rsquo;d rather pass that savings to you in implementation time. Wire is free, instant, and bank-grade secure. ACH is the backup.</p>
+        </details>
+        <details class="q">
+          <summary>Can I see the contract before paying?</summary>
+          <p>Yes &mdash; Step 1 is to sign. Payment is Step 2. Signed MSA must precede any work and any payment.</p>
+        </details>
+        <details class="q">
+          <summary>Who do I contact if something breaks?</summary>
+          <p>Your dedicated Slack channel and a 24/7 monitored inbox at <a href="mailto:support@growthos-ai.com">support@growthos-ai.com</a>. AI Voice Caller has a 99.95% uptime SLA in your contract.</p>
+        </details>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="../index.html" class="brand brand-logo-only">
+        <img src="../assets/img/logo.png" alt="GrowthOS AI" style="height:30px;width:auto;" />
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../terms.html">Terms</a>
+        <a href="../cookies.html">Cookies</a>
+        <a href="mailto:hello@growthos-ai.com">Support</a>
+      </nav>
+      <div class="footer-copy">&copy; <span id="year">2026</span> GrowthOS AI &middot; Operated by Social Elite Marketing Group LLC &middot; <a href="mailto:hello@growthos-ai.com">hello@growthos-ai.com</a></div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
