@@ -125,14 +125,26 @@
     const host = document.querySelector('elevenlabs-convai');
     if (!host || !host.shadowRoot) return false;
     const matchers = [
-      /powered\s*by/i, /elevenlabs/i, /11labs/i
+      /powered\s*by/i, /elevenlabs/i, /11labs/i,
+      /elevenagents/i, /eleven\s*agents/i
+    ];
+    const hrefMatchers = [
+      /elevenlabs\.io/i, /elevenagents\./i, /11labs\.io/i
     ];
     const walk = (root) => {
       const nodes = root.querySelectorAll('*');
       for (const n of nodes) {
         const txt = (n.textContent || '').trim();
-        if (txt && txt.length < 60 && matchers.some(rx => rx.test(txt))) {
-          // hide only leaf-ish elements (no children with substantive text)
+        const href = (n.getAttribute && n.getAttribute('href')) || '';
+        const hrefHit = href && hrefMatchers.some(rx => rx.test(href));
+        const textHit = txt && txt.length < 60 && matchers.some(rx => rx.test(txt));
+        if (hrefHit) {
+          n.style.display = 'none';
+          // also hide parent wrapper if it's just a container for this link
+          if (n.parentElement && n.parentElement.children.length === 1) {
+            n.parentElement.style.display = 'none';
+          }
+        } else if (textHit) {
           const hasChildText = Array.from(n.children).some(c => (c.textContent || '').trim().length > 0);
           if (!hasChildText || n.tagName === 'A') {
             n.style.display = 'none';
@@ -141,7 +153,10 @@
         if (n.shadowRoot) walk(n.shadowRoot);
       }
     };
+    // Walk both the widget's shadow root AND the global document
+    // (the ElevenAgents badge might render in light DOM near/outside the widget)
     walk(host.shadowRoot);
+    walk(document);
     return true;
   };
   let stripTries = 0;

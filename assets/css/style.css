@@ -1004,11 +1004,22 @@ elevenlabs-convai::part(footer) {
 .made-with-elevenlabs,
 [class*="elevenlabs-badge"],
 [class*="made-with-eleven"],
-[class*="powered-by-eleven"] {
+[class*="powered-by-eleven"],
+[class*="elevenagents"],
+[class*="eleven-agents"] {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
   opacity: 0 !important;
+  pointer-events: none !important;
+}
+/* Any link pointing at elevenlabs / elevenagents domains near the widget */
+a[href*="elevenlabs.io"],
+a[href*="elevenagents.com"],
+a[href*="elevenagents.ai"],
+a[href*="11labs.io"] {
+  display: none !important;
+  visibility: hidden !important;
   pointer-events: none !important;
 }
 
