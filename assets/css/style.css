@@ -999,6 +999,18 @@ elevenlabs-convai::part(footer) {
   height: 0 !important;
   opacity: 0 !important;
 }
+/* Direct class targets — for badge elements that render in light DOM */
+.elevenlabs-badge-container,
+.made-with-elevenlabs,
+[class*="elevenlabs-badge"],
+[class*="made-with-eleven"],
+[class*="powered-by-eleven"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
 
 /* ---------- SHOWCASE BLOCKS ---------------------------------------- */
 .showcase {
